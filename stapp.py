@@ -53,14 +53,7 @@ def get_embed_token(username="user@test.com", role="Role1"):
     }
 
     body = {
-        "accessLevel": "View",
-        "identities": [
-            {
-                "username": username,
-                "roles": [role],
-                "datasets": [DATASET_ID]
-            }
-        ]
+        "accessLevel": "View"
     }
 
     response = requests.post(url, headers=headers, json=body)
