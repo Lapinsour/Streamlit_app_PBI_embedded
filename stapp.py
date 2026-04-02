@@ -79,7 +79,7 @@ try:
         ?reportId={REPORT_ID}
         &groupId={GROUP_ID}
         """
-
+    st.write(embed_url)
     html_code = f"""
     <html>
       <body style="margin:0;padding:0;">
