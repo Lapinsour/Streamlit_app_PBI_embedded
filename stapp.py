@@ -74,13 +74,7 @@ st.title("📊 Power BI Embedded (minimal)")
 try:
     token = get_embed_token()
 
-    embed_url = f"""
-        https://app.powerbi.com/reportEmbed
-        ?reportId={REPORT_ID}
-        &groupId={GROUP_ID}
-        &navContentPaneEnabled=false
-        &filterPaneEnabled=false
-        """
+    embed_url = f"https://app.powerbi.com/reportEmbed?reportId={REPORT_ID}&groupId={GROUP_ID}&navContentPaneEnabled=false&filterPaneEnabled=false"
     st.write(embed_url)
     html_code = f"""
     <html>
