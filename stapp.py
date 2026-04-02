@@ -78,6 +78,8 @@ try:
         https://app.powerbi.com/reportEmbed
         ?reportId={REPORT_ID}
         &groupId={GROUP_ID}
+        &navContentPaneEnabled=false
+        &filterPaneEnabled=false
         """
     st.write(embed_url)
     html_code = f"""
