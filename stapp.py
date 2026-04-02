@@ -75,12 +75,10 @@ try:
     token = get_embed_token()
 
     embed_url = f"""
-    https://app.powerbi.com/reportEmbed
-    ?reportId={REPORT_ID}
-    &groupId={GROUP_ID}
-    &navContentPaneEnabled=false
-    &filterPaneEnabled=false
-    """
+        https://app.powerbi.com/reportEmbed
+        ?reportId={REPORT_ID}
+        &groupId={GROUP_ID}
+        """
 
     html_code = f"""
     <html>
