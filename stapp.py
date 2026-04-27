@@ -77,18 +77,30 @@ try:
     embed_url = f"https://app.powerbi.com/reportEmbed?reportId=658be3a7-7e2e-4c85-99a4-abdc0d09dbd2&autoAuth=true&ctid=d7c9c94d-28a2-4298-a72e-b1bee01d5b58"
     st.write(embed_url)
     html_code = f"""
-    <html>
-      <body style="margin:0;padding:0;">
-        <iframe
-          width="100%"
-          height="900"
-          src="{embed_url}"
-          frameborder="0"
-          allowFullScreen="true">
-        </iframe>
-      </body>
-    </html>
-    """
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/powerbi-client@2.23.1/dist/powerbi.min.js"></script>
+  </head>
+  <body>
+    <div id="reportContainer" style="height:900px;"></div>
+
+    <script>
+      var models = window['powerbi-client'].models;
+
+      var embedConfig = {{
+        type: 'report',
+        id: '{REPORT_ID}',
+        embedUrl: 'https://app.powerbi.com/reportEmbed?reportId={REPORT_ID}&groupId={GROUP_ID}',
+        accessToken: '{token}',
+        tokenType: models.TokenType.Embed
+      }};
+
+      var container = document.getElementById('reportContainer');
+      powerbi.embed(container, embedConfig);
+    </script>
+  </body>
+</html>
+"""
 
     st.components.v1.html(html_code, height=900)
 
